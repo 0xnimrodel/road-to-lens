@@ -1,15 +1,15 @@
 import '../styles/globals.css'
 import { ApolloProvider } from '@apollo/client'
-import client from '../apollo-client'
-import { MoralisProvider } from 'react-moralis'
+import apolloClient from '../src/apollo-client'
+import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps }) {
   return (
-    // <MoralisProvider serverUrl='https://xxxxx/server' appId='YOUR_APP_ID'>
-      <ApolloProvider client={client}>
+    <ThemeProvider attribute='class' defaultTheme='dark'>
+      <ApolloProvider client={apolloClient}>
         <Component {...pageProps} />{' '}
       </ApolloProvider>
-    // </MoralisProvider>
+    </ThemeProvider>
   )
 }
 

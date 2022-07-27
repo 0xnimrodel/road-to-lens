@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply dark:selection:text-neutral-900  dark:selection:bg-neutral-100
+  }
+}
+
+
+
+.link-text {
+  @apply text-lime-500 dark:selection:text-neutral-100;
+}
+
+.colored-link a {
+  @apply link-text;
+  @apply hover:text-lime-600;
+}
+
+.icon{
+  @apply hover:cursor-pointer 
+  p-1 
+  dark:hover:bg-neutral-700 
+  dark:hover:rounded-full 
+  dark:active:bg-neutral-900;
+}
+

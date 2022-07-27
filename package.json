@@ -11,12 +11,24 @@
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "@heroicons/react": "^1.0.6",
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "cross-fetch": "^3.1.5",
+    "dotenv": "^16.0.1",
+    "ethers": "^5.6.9",
+    "fs": "^0.0.1-security",
     "graphql": "^16.5.0",
+    "interweave": "^13.0.0",
+    "interweave-autolink": "^5.1.0",
+    "moment": "^2.29.4",
     "moralis": "^1.9.0",
     "next": "12.2.2",
+    "next-themes": "^0.2.0",
+    "path": "^0.12.7",
+    "plyr-react": "^5.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-moralis": "^1.4.0"
+    "react-moralis": "^1.4.0",
+    "react-player": "^2.10.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",

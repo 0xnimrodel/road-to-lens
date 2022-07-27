@@ -1,9 +1,8 @@
 import { useQuery } from '@apollo/client'
-import recommendedProfilesQuery from '../queries/recommendedProfilesQuery.js'
-import Profile from '../components/Profile.js'
-import Search from '../components/Search.js'
-import SearchBar from '../components/Search2.js'
-
+import recommendedProfilesQuery from '../src/queries/recommendedProfilesQuery.js'
+import Profile from '../src/components/Profile.js'
+import Search from '../src/components/Search.js'
+import Header from '../src/components/Header.js'
 
 export default function Home() {
   const { loading, error, data } = useQuery(recommendedProfilesQuery)
@@ -12,9 +11,12 @@ export default function Home() {
   if (error) return `Error! ${error.message}`
 
   return (
-    <>
-      <SearchBar/>
-      <div>
+    <div>
+      {/* <Header/> */}
+      <div className='flex justify-center mt-8'>
+        <Search />
+      </div>
+      <div className='pt-12'>
         {data.recommendedProfiles.map((profile, index) => {
           console.log(`Profile ${index}:`, profile)
           return (
@@ -26,6 +28,6 @@ export default function Home() {
           )
         })}
       </div>
-    </>
+    </div>
   )
 }
