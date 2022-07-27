@@ -7,8 +7,9 @@ import PostItem from '../../src/components/PostItem.js'
 export default function ProfilePage() {
   const router = useRouter()
   const { id } = router.query
-
+  
   console.log('fetching profile for', id)
+
   const { loading, error, data } = useQuery(fetchProfileQuery, {
     variables: {
       request: { profileId: id },
@@ -27,18 +28,13 @@ export default function ProfilePage() {
   if (loading) return 'Loading..'
   if (error) return `Error! ${error.message}`
 
+
   return (
     <div className='flex flex-col p-8 items-center'>
-      <Profile profile={data.profile} displayFullProfile={true} />
-      {data.publications.items.map((post, idx) => {
+      <Profile profile={data?.profile} displayFullProfile={true} />
+      {data?.publications?.items.map((post, idx) => {
         return <PostItem key={idx} post={post} />
       })}
     </div>
   )
 }
-
-/**
- 
-    profile.picture __typename: NftImage (example: 0x0d) link: .uri
-                    __typename: MediaSet
- */
