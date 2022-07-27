@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
-import recommendedProfilesQuery from '../src/queries/recommendedProfilesQuery.js'
-import Profile from '../src/components/Profile.js'
-import Search from '../src/components/Search.js'
+import recommendedProfilesQuery from '../src/queries/recommendedProfilesQuery'
+import Profile from '../src/components/Profile'
+import Search from '../src/components/Search'
 
 export default function Home() {
   const { loading, error, data } = useQuery(recommendedProfilesQuery)

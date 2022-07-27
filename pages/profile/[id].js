@@ -1,13 +1,13 @@
 import { useQuery, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
-import fetchProfileQuery from '../../src/queries/fetchProfileQuery.js'
-import Profile from '../../src/components/Profile.js'
-import PostItem from '../../src/components/PostItem.js'
+import fetchProfileQuery from '../../src/queries/fetchProfileQuery'
+import Profile from '../../src/components/Profile'
+import PostItem from '../../src/components/PostItem'
 
 export default function ProfilePage() {
   const router = useRouter()
   const { id } = router.query
-  
+
   console.log('fetching profile for', id)
 
   const { loading, error, data } = useQuery(fetchProfileQuery, {
