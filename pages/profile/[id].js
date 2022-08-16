@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import profileQuery from '../../src/queries/profileQuery'
 import Profile from '../../src/components/Profile'
 import PostItem from '../../src/components/PostItem'
+import Layout from '../../src/components/Layout'
 
 export default function ProfilePage() {
   const router = useRouter()
@@ -29,11 +30,13 @@ export default function ProfilePage() {
   if (error) return `Error! ${error.message}`
 
   return (
-    <div className='flex flex-col p-8 items-center'>
-      <Profile profile={data?.profile} displayFullProfile={true} />
-      {data?.publications?.items.map((post, idx) => {
-        return <PostItem key={idx} post={post} />
-      })}
-    </div>
+    <Layout>
+      <div className='flex flex-col items-center'>
+        <Profile profile={data?.profile} displayFullProfile={true} />
+        {data?.publications?.items.map((post, idx) => {
+          return <PostItem key={idx} post={post} />
+        })}
+      </div>
+    </Layout>
   )
 }
