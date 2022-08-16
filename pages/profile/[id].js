@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from '@apollo/client'
 import { useRouter } from 'next/router'
-import fetchProfileQuery from '../../src/queries/fetchProfileQuery'
+import profileQuery from '../../src/queries/profileQuery'
 import Profile from '../../src/components/Profile'
 import PostItem from '../../src/components/PostItem'
 
@@ -10,7 +10,7 @@ export default function ProfilePage() {
 
   console.log('fetching profile for', id)
 
-  const { loading, error, data } = useQuery(fetchProfileQuery, {
+  const { loading, error, data } = useQuery(profileQuery, {
     variables: {
       request: { profileId: id },
       publicationsRequest: {
@@ -19,7 +19,7 @@ export default function ProfilePage() {
       },
       reactionRequest: {
         profileId: id,
-      }
+      },
     },
   })
 
@@ -27,7 +27,6 @@ export default function ProfilePage() {
 
   if (loading) return 'Loading..'
   if (error) return `Error! ${error.message}`
-
 
   return (
     <div className='flex flex-col p-8 items-center'>
